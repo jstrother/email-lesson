@@ -1,8 +1,12 @@
 #menu {
 	width: 10%;
+	height: 100%;
+	padding-top: 1px;
 	background-color: gray;
+	color: white;
 }
 
 #app {
 	width: 90%;
+	background-color: lt-gray;
 }

@@ -114,8 +114,7 @@ var SpamContainer = function() {
 var EmailContainer = function() {
 	return (
 		<div>
-			<Inbox emails={EMAILS} />
-			<Spam emails={EMAILS} />
+			
 		</div>
 	);
 };
@@ -130,4 +129,5 @@ var routes = (
 
 document.addEventListener('DOMContentLoaded', function() {
 	ReactDOM.render(routes, document.getElementById('app'));
+	// ReactDOM.render(<Menu />, document.getElementById('menu'));
 });
