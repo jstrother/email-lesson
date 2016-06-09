@@ -1,12 +1,15 @@
-#menu {
+aside {
 	width: 10%;
 	height: 100%;
 	padding-top: 1px;
-	background-color: gray;
+	background-color: #808080;
 	color: white;
+	float: left;
 }
 
-#app {
-	width: 90%;
-	background-color: lt-gray;
+main {
+	width: 60%;
+	background-color: #d3d3d3;
+	float: right;
+	margin-right: 250px;
 }
