@@ -43,12 +43,25 @@ var EMAILS = [
 var Email = function(props) {
 	return (
 		<div>
-			{props.from}
-			<br />
-			{props.to}
-			<br />
-			{props.title}
-			<br />
+			<h1>{props.title}</h1><br />
+			<hr />
+			<h3>From: {props.from}</h3><br />
+			<h4>To: {props.to}</h4><br />
+			<hr />
+			<p>{props.content}</p>
+		</div>
+	);
+};
+
+var EmailContent = function(props) {
+	return (
+		<div>
+			<h1>{props.title}</h1><br />
+			<hr />
+			<h3>From: {props.from}</h3><br />
+			<h4>To: {props.to}</h4><br />
+			<hr />
+			<p>{props.content}</p>
 		</div>
 	);
 };
@@ -60,13 +73,15 @@ var EmailList = React.createClass({
 				return (text.charAt(0).toUpperCase() + text.substr(1).toLowerCase());
 			}
 		);
+
 		var emails = EMAILS.filter(email => (email.mailbox === route)).map(function(email, index) {
-			return (
-				<li key={index}>
-					<Email id={email.id} from={email.from} to={email.to} title={email.title} content={email.content} />
-	 			</li>
-			)
-		});
+				return (
+					<li key={index}>
+						<Email id={email.id} from={email.from} to={email.to} title={email.title} content={email.content} />
+		 			</li>
+				)
+			});
+
 		return (
 			<div>
 				<h1>{title}</h1>
@@ -100,11 +115,13 @@ var routes = (
 		<Route path="/" component={EmailContainer}>
 			<Route path="inbox" component={EmailList} />
 			<Route path="spam" component={EmailList} />
+			<Route path="email" component={EmailList}>
+				<Route path="/:emailID" component={Email} />
+			</Route>
 		</Route>
 	</Router>
 );
 
 document.addEventListener('DOMContentLoaded', function() {
 	ReactDOM.render(routes, document.getElementById('app'));
-	// ReactDOM.render(<Menu />, document.getElementById('menu'));
 });
